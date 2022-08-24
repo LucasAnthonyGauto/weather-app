@@ -5,7 +5,7 @@ import { convertTime } from "../utils/time-Zone";
 export default function Weather() {
   const lat =-34.61315;
   const lon =-58.37723;
-  const [icon, setIcon] = useState("");
+  const [iconTime, setIconTime] = useState("");
   const [temp, setTemp] = useState(0);
   const [feels, setFeels] = useState(0);
   const [desc, setDesc] = useState("");
@@ -27,12 +27,12 @@ export default function Weather() {
       const {main, weather} = res;
       const currentTemp = main.temp;
       const currentFeels = main.feels_like;
-      const {description} = weather[0];
+      const {icon, description} = weather[0];
       const {humidity} = main;
       const {speed} =res.wind;
       const {name} = res;
       
-      setIcon(`http://openweathermap.org/img/wn/${icon}@4x.png`);
+      setIconTime(`http://openweathermap.org/img/wn/${icon}@4x.png`);
       setTemp (currentTemp);
       setFeels (currentFeels);
       setDesc (description);
@@ -46,16 +46,19 @@ export default function Weather() {
   }, [])
   return (
     <div className="box">
-        <h1 className="box-title">Tiempo Actual</h1>
-        <ul className="box-small">
-          {/* <li>{icon}</li> */}
-          <li>{timeZone}</li>
-          <li>{temp} °C</li>
+        <h1 className="box-title">{name}</h1>
+        <div className="box-master">
+          <ul>
+            <li id="time">{timeZone}</li>
+            <li id="temp">{temp} °C</li>
+          </ul>
+          <img src={iconTime} alt=""/>
+        </div>
+        <ul className="box-description">
           <li>{desc}</li>
-          <li>Sensación térmica {feels} °C</li>
-          <li>Velocidad del viento {speed}</li>
-          <li>humedad {humidity}%</li>
-          <li>{name}</li>
+          <li>Sensación térmica: {feels} °C</li>
+          <li>Velocidad del viento: {speed}</li>
+          <li>humedad: {humidity}%</li>
         </ul>
     </div>
   )
