@@ -3,23 +3,23 @@
 *{
   font-family: 'Roboto', sans-serif;
   list-style: none;
+
 }
 
+body{
+  background-color: rgb(255, 255, 255);
+}
 .box{
-  width: 100vw;
-  height: 100vh;
-
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
-
-  background-color: rgb(255, 255, 255);
 }
 
 .box-title{
   font-size: 4rem;
   margin-bottom: 0px;
+  font-weight: 100;
 }
 
 .box-master{
@@ -30,6 +30,7 @@
 }
 
 .box-description{
+  text-transform: capitalize;
   font-size: 1.5rem;
   margin-top: 0px;
 }

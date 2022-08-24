@@ -49,8 +49,8 @@ export default function Weather() {
         <h1 className="box-title">{name}</h1>
         <div className="box-master">
           <ul>
-            <li id="time">{timeZone}</li>
-            <li id="temp">{temp} °C</li>
+            <li>{timeZone}</li>
+            <li>{temp} °C</li>
           </ul>
           <img src={iconTime} alt=""/>
         </div>
